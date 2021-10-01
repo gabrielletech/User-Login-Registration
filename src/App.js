@@ -1,10 +1,9 @@
 import './App.css';
+import LoginBtn from './components/LoginBtn';
 
 function App() {
   return (
-    <div>
-    
-    </div>
+    <LoginBtn />
   );
 }
 

@@ -4,6 +4,15 @@
     padding: 0;
 }
 
+@media (min-width: 320px) { 
+    .buttons {
+        text-align: center;
+        position: absolute;
+        display: block;
+        margin: auto;
+    }
+ }
+
 .main {
     width: 100%;
     height: 100vh;
@@ -22,6 +31,7 @@
 }
 
 .buttons {
+    text-align: center;
     position: absolute;
     top: 60%;
     left: 40%;
@@ -36,11 +46,14 @@
     border-color: #fff;
 }
 
-.log-in:hover {
+.log-in:hover,
+.sign-up:hover {
     background-color: #b486b4;
+    border-color: #b486b4;
 }
 
 .sign-up {
     color: #fff;
     font-weight: lighter;
+    border-color: #fff;
 }

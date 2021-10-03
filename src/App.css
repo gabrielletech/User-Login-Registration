@@ -56,4 +56,16 @@
     color: #fff;
     font-weight: lighter;
     border-color: #fff;
+    text-decoration: none;
+}
+
+.login-btn,
+.signup-btn {
+    text-decoration: none;
+    color: #fff;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    color: #fff;
 }

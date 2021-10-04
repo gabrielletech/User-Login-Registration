@@ -69,3 +69,15 @@
 .signup-btn:hover {
     color: #fff;
 }
+
+.container {
+    position: relative;
+    top: 40%;
+    height: 320px;
+    background-color: #fff;
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

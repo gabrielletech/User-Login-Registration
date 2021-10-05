@@ -99,3 +99,12 @@
     color: grey;
 }
 
+.login-sub {
+    margin-top:40px;
+    margin-bottom:10px;
+}
+
+.message{
+    display:flex;
+    justify-content:space-between
+}

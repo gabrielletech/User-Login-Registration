@@ -70,3 +70,32 @@
     color: #fff;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 380px;
+    height: 450px;
+    padding: 20px;
+    background-color: #121212;
+    opacity: 0.8;
+    border-radius: 20px;
+}
+
+.user-box {
+    margin-bottom: 15px;
+}
+
+.user {
+    font-size: 110px;
+    color: grey;
+}
+

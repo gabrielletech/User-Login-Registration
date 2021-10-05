@@ -38,10 +38,10 @@ const LoginForm = () => {
                                     </span>
                                 </div>
                                 <input type="text" className="form-control" placeholder="Password" />
-                            </div>
-                            <button type="button" className="btn btn-secondary btn-block login-sub">LOGIN</button>
+                            </div> 
+                            <button type="button" className="btn btn-secondary login-sub">LOGIN</button>
                             <div className="message">
-                                <div>
+                                <div className="remember-me">
                                     <input type="checkbox" /> Remember ME
                                 </div>
                                 <div>

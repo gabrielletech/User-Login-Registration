@@ -90,6 +90,10 @@
     border-radius: 20px;
 }
 
+.login-header {
+    
+}
+
 .user-box {
     margin-bottom: 15px;
 }
@@ -102,6 +106,10 @@
 .login-sub {
     margin-top:40px;
     margin-bottom:10px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .message{
@@ -112,4 +120,8 @@
 .email,
 .password {
     font-size: 25px;
+}
+
+.remember-me {
+    color: lightgrey;
 }

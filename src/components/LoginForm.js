@@ -23,7 +23,7 @@ const LoginForm = () => {
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text">
-                                        <MdOutlineAlternateEmail />
+                                        <MdOutlineAlternateEmail className="email"/>
                                     </span>
                                 </div>
                                 <input type="text"
@@ -34,7 +34,7 @@ const LoginForm = () => {
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text">
-                                        <RiLockPasswordLine />
+                                        <RiLockPasswordLine className="password"/>
                                     </span>
                                 </div>
                                 <input type="text" className="form-control" placeholder="Password" />

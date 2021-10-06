@@ -3,7 +3,7 @@
 
 This application is built in React.js to illustrate user login and registration using React Hooks :)
 
-### Brielf Explanation on how this works
+### Brief Explanation on how this works
 
 > Here we see the useState hook being used to store user input from the user. We proceed to connect the state to our two fields in the form using setEmail and setPassword within the handleEmailChange & handlePasswordChange functions to store what the user types in — e.target.value. Once we set the new state, our component gets re-rendered. The variables email and password now have the new values.
 

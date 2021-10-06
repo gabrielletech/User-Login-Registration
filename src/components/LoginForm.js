@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiUserCircle } from 'react-icons/bi';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { RiLockPasswordLine } from 'react-icons/ri';
 
 
 const LoginForm = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const formValidation = () => {
+        return email.length > 0 && password.length > 0;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
     return (
     <>
         <div className="main">
@@ -19,16 +38,19 @@ const LoginForm = () => {
                         </h4>
                     </div> 
                     <div className="form">
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text">
                                         <MdOutlineAlternateEmail className="email"/>
                                     </span>
                                 </div>
-                                <input type="text"
+                                <input type="email"
                                         className="form-control"
                                         placeholder="Email"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                        autoFocus
                                 />
                             </div>
                             <div className="input-group mb-3">
@@ -37,9 +59,16 @@ const LoginForm = () => {
                                         <RiLockPasswordLine className="password"/>
                                     </span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Password" />
+                                <input type="password" 
+                                        className="form-control" 
+                                        placeholder="Password"
+                                        value={password} 
+                                         onChange={handlePasswordChange}   
+                                        />
                             </div> 
-                            <button type="button" className="btn btn-secondary login-sub">LOGIN</button>
+                            <button type="submit" 
+                                    className="btn btn-secondary login-sub"
+                                    disabled={!formValidation()}>LOGIN</button>
                             <div className="message">
                                 <div className="remember-me">
                                     <input type="checkbox" /> Remember ME

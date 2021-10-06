@@ -1,24 +1,119 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import { BiUserCircle } from 'react-icons/bi';
+import { MdOutlineAlternateEmail, MdDriveFileRenameOutline } from 'react-icons/md';
+import { CgKey } from 'react-icons/cg';
 
-export default function RegistrationForm() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+const RegistrationForm = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  const handleSubmit = (e) => {
+    e.preventDefault();
+}
+
+  const onUsernameChange = (e) => {
+    setUsername(e.target.value)
+  }
+
+  const onEmailChange = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const onPasswordChange = (e) => {
+    setPassword(e.target.value)
+  }
+
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
-      
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-      
-      <input type="submit" />
-    </form>
-  );
+    <div>
+        <div className="main">
+            <div className="signup-header">
+                <h1 className="display-4">Sign Up</h1>
+            </div>
+            <div className="container">
+                <div className="reg-box">
+                    <div className="user-box">
+                        <h4 className="text-primary text-center">
+                            <BiUserCircle className="user"/>
+                        </h4>
+                    </div> 
+                    <div className="form">
+                        <form onSubmit={handleSubmit}>
+                          <div className="input-group mb-3">
+                              <div className="input-group-prepend">
+                                  <span className="input-group-text">
+                                      <MdDriveFileRenameOutline className="email"/>
+                                  </span>
+                                  </div>
+                                  <input type="name"
+                                          className="form-control"
+                                          placeholder="Username"
+                                          value={username}
+                                          onChange={onUsernameChange}
+                                          autoFocus
+                                  />
+                              </div>
+                            <div className="input-group mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">
+                                        <MdOutlineAlternateEmail className="email"/>
+                                    </span>
+                                </div>
+                                <input type="email"
+                                        className="form-control"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={onEmailChange}
+                                />
+                            </div>
+                            <div className="input-group mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">
+                                        <CgKey className="password"/>
+                                    </span>
+                                </div>
+                                <input type="password" 
+                                        className="form-control" 
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={onPasswordChange}
+                                        required
+                                />
+                            </div> 
+                            <div className="input-group mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">
+                                        <CgKey className="password"/>
+                                    </span>
+                                </div>
+                                <input type="password" 
+                                        className="form-control" 
+                                        placeholder="Re-enter Password"
+                                        value={password}
+                                        onChange={onPasswordChange}
+                                        required
+                                />
+                            </div>
+                            <button type="submit" 
+                                    className="btn btn-secondary login-sub">
+                                    SIGN UP
+                            </button>
+                            <div className="message">
+                                <div className="remember-me">
+                                    <input type="checkbox" /> Remember ME
+                                </div>
+                                <div>
+                                    <a href="/">Forgot your password</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>  
+                </div>  
+            </div>   
+        </div>
+    </div>
+  )
 }
+
+export default RegistrationForm;

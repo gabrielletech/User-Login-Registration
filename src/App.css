@@ -90,8 +90,16 @@
     border-radius: 20px;
 }
 
-.login-header {
-    
+.reg-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 390px;
+    height: 500px;
+    padding: 20px;
+    background-color: #121212;
+    opacity: 0.8;
+    border-radius: 20px;
 }
 
 .user-box {

@@ -4,25 +4,24 @@ import { MdOutlineAlternateEmail, MdDriveFileRenameOutline } from 'react-icons/m
 import { CgKey } from 'react-icons/cg';
 
 const RegistrationForm = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+        username: "",
+        email: "",
+        password: ""
+  });
+  
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-}
+        e.preventDefault();
+    }
 
-  const onUsernameChange = (e) => {
-    setUsername(e.target.value)
-  }
+    const handleInputChange = (e) => {
+        setUser({
+            ...user,
+           [e.target.email] : e.target.value
+        })
+   }
 
-  const onEmailChange = (e) => {
-    setEmail(e.target.value)
-  }
-
-  const onPasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
 
 
   return (
@@ -49,8 +48,8 @@ const RegistrationForm = () => {
                                   <input type="name"
                                           className="form-control"
                                           placeholder="Username"
-                                          value={username}
-                                          onChange={onUsernameChange}
+                                          value={user.username}
+                                          onChange={handleInputChange}
                                           autoFocus
                                   />
                               </div>
@@ -63,8 +62,8 @@ const RegistrationForm = () => {
                                 <input type="email"
                                         className="form-control"
                                         placeholder="Email"
-                                        value={email}
-                                        onChange={onEmailChange}
+                                        value={user.mail}
+                                        onChange={handleInputChange}
                                 />
                             </div>
                             <div className="input-group mb-3">
@@ -76,8 +75,8 @@ const RegistrationForm = () => {
                                 <input type="password" 
                                         className="form-control" 
                                         placeholder="Password"
-                                        value={password}
-                                        onChange={onPasswordChange}
+                                        value={user.password}
+                                        onChange={handleInputChange}
                                         required
                                 />
                             </div> 
@@ -90,8 +89,8 @@ const RegistrationForm = () => {
                                 <input type="password" 
                                         className="form-control" 
                                         placeholder="Re-enter Password"
-                                        value={password}
-                                        onChange={onPasswordChange}
+                                        value={user.password}
+                                        onChange={handleInputChange}
                                         required
                                 />
                             </div>

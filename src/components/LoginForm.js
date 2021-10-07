@@ -2,26 +2,31 @@ import React, { useState } from 'react';
 import { BiUserCircle } from 'react-icons/bi';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { RiLockPasswordLine } from 'react-icons/ri';
+import validation from '../validation/validation';
 
 
 const LoginForm = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    });
+    
+    const [errors, setErrors] = useState({});
 
     const formValidation = () => {
-        return email.length > 0 && password.length > 0;
+        return user.email.length > 0 && user.password.length > 0;
     }
+
+    const handleInputChange = (e) => {
+        setUser({
+            ...user,
+           [user.email] : e.target.value
+        })
+   }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
+        setErrors(validation(user));
     }
 
     return (
@@ -48,10 +53,11 @@ const LoginForm = () => {
                                 <input type="email"
                                         className="form-control"
                                         placeholder="Email"
-                                        value={email}
-                                        onChange={handleEmailChange}
+                                        value={user.email}
+                                        onChange={handleInputChange}
                                         autoFocus
                                 />
+                                {errors.email && <p className="error">{errors.email}</p>}
                             </div>
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
@@ -62,9 +68,10 @@ const LoginForm = () => {
                                 <input type="password" 
                                         className="form-control" 
                                         placeholder="Password"
-                                        value={password} 
-                                         onChange={handlePasswordChange}   
+                                        value={user.password} 
+                                        onChange={handleInputChange}   
                                         />
+                                        {errors.password && <p className="error">{errors.password}</p>}
                             </div> 
                             <button type="submit" 
                                     className="btn btn-secondary login-sub"

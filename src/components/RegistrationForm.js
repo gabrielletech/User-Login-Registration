@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiUserCircle } from 'react-icons/bi';
 import { MdOutlineAlternateEmail, MdDriveFileRenameOutline } from 'react-icons/md';
 import { CgKey } from 'react-icons/cg';
+import SignupSuccess from './SignupSuccess';
 
 const RegistrationForm = () => {
   const [user, setUser] = useState({
@@ -9,10 +10,15 @@ const RegistrationForm = () => {
         email: "",
         password: ""
   });
+
+  const [formIsSubmitted, setFormIsSubmitted] = useState(false);
   
 
   const handleSubmit = (e) => {
         e.preventDefault();
+        if (formIsSubmitted) {
+            setFormIsSubmitted(<SignupSuccess/>);
+        }
     }
 
     const handleInputChange = (e) => {
@@ -113,6 +119,7 @@ const RegistrationForm = () => {
         </div>
     </div>
   )
+
 }
 
 export default RegistrationForm;
